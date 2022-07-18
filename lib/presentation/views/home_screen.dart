@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:lox/presentation/widgets/checkout.dart';
 import 'package:lox/presentation/widgets/home_widget.dart';
 import 'package:lox/presentation/widgets/payment.dart';
+import 'package:lox/presentation/widgets/profile.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -9,7 +10,7 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: const Payment(),
+      body: const Profile(),
       bottomNavigationBar: BottomNavigationBar(
         type: BottomNavigationBarType.fixed,
         unselectedItemColor: const Color(0xff929CAD),
