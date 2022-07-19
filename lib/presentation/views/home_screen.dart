@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:lox/data/repository/profile_repo.dart';
 import 'package:lox/presentation/widgets/appointment_add.dart';
 import 'package:lox/presentation/views/checkout.dart';
 import 'package:lox/presentation/widgets/home_widget.dart';
@@ -6,6 +7,8 @@ import 'package:lox/presentation/views/payment.dart';
 import 'package:lox/presentation/widgets/profile.dart';
 import 'package:lox/presentation/views/schedule.dart';
 import 'package:lox/presentation/widgets/search.dart';
+
+import '../../data/model/profile_model.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -16,11 +19,12 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   int _selectedIndex = 0;
-  static const List<Widget> _screenOptions = <Widget>[
+  static final List<Widget> _screenOptions = <Widget>[
     HomeWidget(),
     Search(),
     AddAppointment(),
-    Profile(),
+    Search(),
+    //Profile(),
   ];
   void _onItemTapped(int index){
     setState(() {

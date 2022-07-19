@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:lox/data/model/profile_model.dart';
+import 'package:lox/data/repository/profile_repo.dart';
 import 'package:lox/presentation/helpers/navigator.dart';
 import 'package:lox/presentation/widgets/profile.dart';
 
@@ -7,12 +9,13 @@ class HomeWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    late ProfileModel profileModel;
     return Padding(
       padding: const EdgeInsets.only(top: 50),
       child: Column(
         children: [
           Container(
-            height: 168,
+              height: 168,
               width: 365,
               alignment: Alignment.center,
               decoration: const BoxDecoration(
@@ -22,7 +25,8 @@ class HomeWidget extends StatelessWidget {
                     ),
                     fit: BoxFit.cover,
                     colorFilter: ColorFilter.mode(
-                        Color.fromRGBO(22, 72, 206, 0.69), BlendMode.hardLight)),
+                        Color.fromRGBO(22, 72, 206, 0.69),
+                        BlendMode.hardLight)),
               )),
           Container(
             alignment: Alignment.centerLeft,
@@ -32,38 +36,48 @@ class HomeWidget extends StatelessWidget {
               style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
             ),
           ),
-          GestureDetector(
-            onTap: ()=> navigatePush(context, Profile()),
-            child: ListTile(
-              leading: Container(
-                height: 37,
-                width: 37,
-                alignment: Alignment.center,
-                decoration: BoxDecoration(
-                    color: const Color(0xff242736),
-                    borderRadius: BorderRadius.circular(10)),
-                child: const Text(
-                  'S',
-                  style: TextStyle(color: Colors.white),
+          Expanded(
+            child: ListView.builder(
+              shrinkWrap: true,
+              scrollDirection: Axis.vertical,
+              itemCount: profileList.length,
+              itemBuilder: (context, i) => GestureDetector(
+                onTap: () {
+                  navigatePush(context, Profile(profileList[i]));
+                },
+                child: ListTile(
+                  leading: Container(
+                    height: 37,
+                    width: 37,
+                    alignment: Alignment.center,
+                    decoration: BoxDecoration(
+                        color: const Color(0xff242736),
+                        borderRadius: BorderRadius.circular(10)),
+                    child: const Text(
+                      'S',
+                      style: TextStyle(color: Colors.white),
+                    ),
+                  ),
+                  title: Text(
+                    profileList[i].name,
+                    style:
+                        TextStyle(fontWeight: FontWeight.w600, fontSize: 13.6),
+                  ),
+                  subtitle: const Text(
+                    'Gbagada',
+                    style: TextStyle(
+                        fontWeight: FontWeight.w300,
+                        fontSize: 10,
+                        color: Color(0xffAEAEB3)),
+                  ),
+                  trailing: Text(
+                    '\$${profileList[i].consultationFee}',
+                    style: const TextStyle(
+                        fontWeight: FontWeight.w500,
+                        fontSize: 14,
+                        color: Color(0xffff4658)),
+                  ),
                 ),
-              ),
-              title: const Text(
-                'Seun Olumide',
-                style: TextStyle(fontWeight: FontWeight.w600, fontSize: 13.6),
-              ),
-              subtitle: const Text(
-                'Gbagada',
-                style: TextStyle(
-                    fontWeight: FontWeight.w300,
-                    fontSize: 10,
-                    color: Color(0xffAEAEB3)),
-              ),
-              trailing: const Text(
-                '\$250',
-                style: TextStyle(
-                    fontWeight: FontWeight.w500,
-                    fontSize: 14,
-                    color: Color(0xffFF4658)),
               ),
             ),
           ),
