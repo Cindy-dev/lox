@@ -119,7 +119,9 @@ Widget ratingRow() {
               Icons.star,
               color: Color(0xffEF802F),
             ),
-            const SizedBox(width: 10,),
+            const SizedBox(
+              width: 10,
+            ),
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: const [
@@ -170,6 +172,62 @@ Widget ratingRow() {
             ],
           ),
         ),
+      ],
+    ),
+  );
+}
+
+Widget feedback() {
+  return Padding(
+    padding: const EdgeInsets.only(bottom: 20, top: 21, left: 16, right: 16),
+    child: Column(
+      children: [
+        Row(
+          children: [
+            const Icon(
+              Icons.help_outlined,
+              color: Color(0xffEFF1FC),
+            ),
+            const SizedBox(
+              width: 10,
+            ),
+            Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisSize: MainAxisSize.max,
+                children: const  [
+                  Text(
+                    'Anonymous feedback',
+                    style: TextStyle(
+                        fontSize: 14,
+                        fontWeight: FontWeight.w600,
+                        color: Color(0xff394D6D)),
+                  ),
+                  SizedBox(
+                    height: 9,
+                  ),
+                   Text(
+                      'Very competent specialist. I am very happy\n'
+                      'that there are such professional doctors.\n'
+                      'My baby is in safe hands. My child\'s \nhealth is above all',
+                      style: TextStyle(
+                          fontSize: 12,
+                          fontWeight: FontWeight.w400,
+                          color: Color(0xff091F44)),
+
+                  ),
+                ],
+              ),
+            ),
+          ],
+        ),
+        const Divider(
+          thickness: 2,
+          indent: 16,
+          endIndent: 16,
+          color: Color(0xffF2F4F7),
+        ),
+
       ],
     ),
   );

@@ -108,12 +108,42 @@ class Profile extends StatelessWidget {
               decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(16),
                   color: const Color(0xffFFFFFF)),
-              child: Column(children: [
-                ratingRow(),
-              ],),
+              child: Column(
+                children: [
+                  ratingRow(),
+                  const Divider(
+                    thickness: 2,
+                    indent: 16,
+                    endIndent: 16,
+                    color: Color(0xffF2F4F7),
+                  ),
+                  feedback(),
+                ],
+              ),
             ),
-
-          )
+          ),
+          Container(
+            width: 343,
+            height: 48,
+            alignment: Alignment.center,
+            margin: EdgeInsets.only(left: 15, right: 15, bottom: 10, top: 34),
+            decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(16),
+                color: Color(0xff1648CE)),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: const [
+                Icon(Icons.book_online_outlined, color: Color(0xffFFFFFF), size: 16,),
+                 SizedBox(width: 8),
+                 Text('Make an appointment',
+                    style: TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.w400,
+                      color: Color(0xffFFFFFF),
+                    )),
+              ],
+            ),
+          ),
         ],
       ),
     );

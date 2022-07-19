@@ -9,7 +9,19 @@ class HomeWidget extends StatelessWidget {
       padding: const EdgeInsets.only(top: 50),
       child: Column(
         children: [
-          Image.asset('asset/image/Rectangle 4053.png'),
+          Container(
+            height: 168,
+              width: 365,
+              alignment: Alignment.center,
+              decoration: const BoxDecoration(
+                image: DecorationImage(
+                    image: AssetImage(
+                      'asset/image/Rectangle 4053.png',
+                    ),
+                    fit: BoxFit.cover,
+                    colorFilter: ColorFilter.mode(
+                        Color.fromRGBO(22, 72, 206, 0.69), BlendMode.hardLight)),
+              )),
           Container(
             alignment: Alignment.centerLeft,
             margin: const EdgeInsets.only(top: 30, left: 22),
