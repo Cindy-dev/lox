@@ -1,20 +1,19 @@
 import 'package:date_picker_timeline/date_picker_widget.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:lox/presentation/views/home_screen.dart';
-import 'package:lox/presentation/widgets/home_widget.dart';
+import 'package:lox/presentation/helpers/navigator.dart';
+import 'package:lox/presentation/helpers/schedule_helper.dart';
+import 'package:lox/presentation/widgets/appointment_add.dart';
+import 'package:lox/presentation/views/payment.dart';
 
-import '../helpers/navigator.dart';
-import '../helpers/schedule_helper.dart';
-
-class AddAppointment extends StatefulWidget {
-  const AddAppointment({Key? key}) : super(key: key);
+class ScheduleDate extends StatefulWidget {
+  const ScheduleDate({Key? key}) : super(key: key);
 
   @override
-  State<AddAppointment> createState() => _AddAppointmentState();
+  State<ScheduleDate> createState() => _ScheduleDateState();
 }
 
-class _AddAppointmentState extends State<AddAppointment> {
+class _ScheduleDateState extends State<ScheduleDate> {
   DatePickerController _controller = DatePickerController();
 
   DateTime _selectedValue = DateTime.now();
@@ -31,15 +30,7 @@ class _AddAppointmentState extends State<AddAppointment> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Padding(
-            padding: const EdgeInsets.only(left: 12, top: 20),
-            child: IconButton(
-                onPressed: () {
-                  navigatePush(context, const HomeScreen());
-                },
-                icon: Icon(Icons.arrow_back)),
-          ),
-          Padding(
-            padding: const EdgeInsets.fromLTRB(17, 17, 5, 13),
+            padding: const EdgeInsets.fromLTRB(12, 40, 5, 13),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -94,7 +85,7 @@ class _AddAppointmentState extends State<AddAppointment> {
             ),
           ),
           Container(
-            margin: const EdgeInsets.only(top: 8, bottom: 50),
+            margin: const EdgeInsets.only(top: 8, bottom: 16),
             child: DatePicker(
               DateTime.now(),
               width: 60,
@@ -116,55 +107,18 @@ class _AddAppointmentState extends State<AddAppointment> {
               },
             ),
           ),
-          Padding(
-            padding: const EdgeInsets.fromLTRB(0, 0, 60, 50),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Column(
-                  children: [
-                    Image.asset('asset/image/Group 33570.png'),
-                    Container(
-                        height: 50,
-                        child: Image.asset('asset/image/Vector 7.png'))
-                  ],
-                ),
-                Column(
-                  children: const [
-                    Text(
-                      'Seun Olumide',
-                      style:
-                          TextStyle(fontSize: 18, fontWeight: FontWeight.w500),
-                    ),
-                    SizedBox(
-                      height: 10,
-                    ),
-                    Text(
-                      '9:00 AM',
-                      style:
-                          TextStyle(fontSize: 15, fontWeight: FontWeight.w400),
-                    )
-                  ],
-                ),
-                Image.asset('asset/image/Frame.png'),
-              ],
+          Container(
+            alignment: Alignment.topLeft,
+            margin: const EdgeInsets.only(left: 8, bottom: 191),
+            child: const Text(
+              'Schedule Today',
+              style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
             ),
           ),
-          Spacer(),
-          Container(
-            width: 326,
-            height: 50,
-            margin: const EdgeInsets.only(left: 18, right: 15, bottom: 30),
-            alignment: Alignment.center,
-            decoration:
-                BoxDecoration(border: Border.all(style: BorderStyle.solid)),
-            child: const Text(
-              'Add Appointment',
-              style: TextStyle(
-                  fontSize: 15,
-                  fontWeight: FontWeight.w500,
-                  color: Color(0xff3E3E50)),
-            ),
+          scheduleReminder(),
+          profileCard(
+            () => navigatePush(context, Payment()),
+            () => navigatePop(context, ScheduleDate()),
           ),
         ],
       ),

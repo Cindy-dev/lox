@@ -26,7 +26,7 @@ Widget scheduleReminder() {
   );
 }
 
-Widget profileCard() {
+Widget profileCard(VoidCallback schedule, VoidCallback cancel) {
   return Center(
     child: Container(
       height: 230,
@@ -159,40 +159,46 @@ Widget profileCard() {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Container(
-                    width: 146,
-                    height: 38,
-                    margin: const EdgeInsets.only(left: 16),
-                    alignment: Alignment.center,
-                    decoration: BoxDecoration(
-                        color: const Color(0xff1648CE),
-                        borderRadius: BorderRadius.circular(12)),
-                    child: const Text(
-                      'Shedule',
-                      style: TextStyle(
-                          fontSize: 16,
-                          fontWeight: FontWeight.w400,
-                          color: Color(0xffFFFFFF)),
+                  GestureDetector(
+                    onTap: schedule,
+                    child: Container(
+                      width: 146,
+                      height: 38,
+                      margin: const EdgeInsets.only(left: 16),
+                      alignment: Alignment.center,
+                      decoration: BoxDecoration(
+                          color: const Color(0xff1648CE),
+                          borderRadius: BorderRadius.circular(12)),
+                      child: const Text(
+                        'Schedule',
+                        style: TextStyle(
+                            fontSize: 16,
+                            fontWeight: FontWeight.w400,
+                            color: Color(0xffFFFFFF)),
+                      ),
                     ),
                   ),
                   const SizedBox(
                     width: 10,
                   ),
-                  Container(
-                    width: 146,
-                    height: 38,
-                    margin: const EdgeInsets.only(right: 16),
-                    alignment: Alignment.center,
-                    decoration: BoxDecoration(
-                        color: const Color(0xffFFFFFF),
-                        border: Border.all(color: const Color(0xff1648CE)),
-                        borderRadius: BorderRadius.circular(12)),
-                    child: const Text(
-                      'Cancel',
-                      style: TextStyle(
-                          fontSize: 16,
-                          fontWeight: FontWeight.w400,
-                          color: Color(0xff1648CE)),
+                  GestureDetector(
+                    onTap: cancel,
+                    child: Container(
+                      width: 146,
+                      height: 38,
+                      margin: const EdgeInsets.only(right: 16),
+                      alignment: Alignment.center,
+                      decoration: BoxDecoration(
+                          color: const Color(0xffFFFFFF),
+                          border: Border.all(color: const Color(0xff1648CE)),
+                          borderRadius: BorderRadius.circular(12)),
+                      child: const Text(
+                        'Cancel',
+                        style: TextStyle(
+                            fontSize: 16,
+                            fontWeight: FontWeight.w400,
+                            color: Color(0xff1648CE)),
+                      ),
                     ),
                   )
                 ],

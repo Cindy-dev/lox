@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:lox/presentation/helpers/navigator.dart';
+import 'package:lox/presentation/widgets/profile.dart';
 
 class HomeWidget extends StatelessWidget {
   const HomeWidget({Key? key}) : super(key: key);
@@ -30,36 +32,39 @@ class HomeWidget extends StatelessWidget {
               style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
             ),
           ),
-          ListTile(
-            leading: Container(
-              height: 37,
-              width: 37,
-              alignment: Alignment.center,
-              decoration: BoxDecoration(
-                  color: const Color(0xff242736),
-                  borderRadius: BorderRadius.circular(10)),
-              child: const Text(
-                'S',
-                style: TextStyle(color: Colors.white),
+          GestureDetector(
+            onTap: ()=> navigatePush(context, Profile()),
+            child: ListTile(
+              leading: Container(
+                height: 37,
+                width: 37,
+                alignment: Alignment.center,
+                decoration: BoxDecoration(
+                    color: const Color(0xff242736),
+                    borderRadius: BorderRadius.circular(10)),
+                child: const Text(
+                  'S',
+                  style: TextStyle(color: Colors.white),
+                ),
               ),
-            ),
-            title: const Text(
-              'Seun Olumide',
-              style: TextStyle(fontWeight: FontWeight.w600, fontSize: 13.6),
-            ),
-            subtitle: const Text(
-              'Gbagada',
-              style: TextStyle(
-                  fontWeight: FontWeight.w300,
-                  fontSize: 10,
-                  color: Color(0xffAEAEB3)),
-            ),
-            trailing: const Text(
-              '\$250',
-              style: TextStyle(
-                  fontWeight: FontWeight.w500,
-                  fontSize: 14,
-                  color: Color(0xffFF4658)),
+              title: const Text(
+                'Seun Olumide',
+                style: TextStyle(fontWeight: FontWeight.w600, fontSize: 13.6),
+              ),
+              subtitle: const Text(
+                'Gbagada',
+                style: TextStyle(
+                    fontWeight: FontWeight.w300,
+                    fontSize: 10,
+                    color: Color(0xffAEAEB3)),
+              ),
+              trailing: const Text(
+                '\$250',
+                style: TextStyle(
+                    fontWeight: FontWeight.w500,
+                    fontSize: 14,
+                    color: Color(0xffFF4658)),
+              ),
             ),
           ),
         ],

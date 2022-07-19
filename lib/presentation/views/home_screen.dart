@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:lox/presentation/widgets/appointment_add.dart';
-import 'package:lox/presentation/widgets/checkout.dart';
+import 'package:lox/presentation/views/checkout.dart';
 import 'package:lox/presentation/widgets/home_widget.dart';
-import 'package:lox/presentation/widgets/payment.dart';
+import 'package:lox/presentation/views/payment.dart';
 import 'package:lox/presentation/widgets/profile.dart';
-import 'package:lox/presentation/widgets/schedule.dart';
+import 'package:lox/presentation/views/schedule.dart';
+import 'package:lox/presentation/widgets/search.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -17,7 +18,7 @@ class _HomeScreenState extends State<HomeScreen> {
   int _selectedIndex = 0;
   static const List<Widget> _screenOptions = <Widget>[
     HomeWidget(),
-    ScheduleDate(),
+    Search(),
     AddAppointment(),
     Profile(),
   ];
