@@ -26,7 +26,8 @@ Widget scheduleReminder() {
   );
 }
 
-Widget profileCard(VoidCallback schedule, VoidCallback cancel) {
+Widget profileCard(VoidCallback schedule, VoidCallback cancel, String name,
+    String occupation, String rating, String imageUrl) {
   return Center(
     child: Container(
       height: 230,
@@ -42,26 +43,24 @@ Widget profileCard(VoidCallback schedule, VoidCallback cancel) {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Row(
-
               children: [
                 Padding(
                   padding: const EdgeInsets.only(left: 16.0),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      const Text(
-                        'Seun Olumide',
-                        style:
-                            TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
+                      Text(
+                        name,
+                        style: TextStyle(
+                            fontSize: 16, fontWeight: FontWeight.w600),
                       ),
-                      const Text(
-                        'Nurse',
+                      Text(
+                        occupation,
                         style: TextStyle(
                             fontSize: 12,
                             fontWeight: FontWeight.w400,
                             color: Color(0xff091F44)),
                       ),
-
                       Padding(
                         padding: const EdgeInsets.only(top: 14),
                         child: Row(
@@ -75,8 +74,8 @@ Widget profileCard(VoidCallback schedule, VoidCallback cancel) {
                             ),
                             Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
-                              children: const [
-                                Text(
+                              children: [
+                                const Text(
                                   'Rating',
                                   style: TextStyle(
                                       fontSize: 12,
@@ -84,8 +83,8 @@ Widget profileCard(VoidCallback schedule, VoidCallback cancel) {
                                       color: Color(0xff394D6D)),
                                 ),
                                 Text(
-                                  '4.78 out of 5',
-                                  style: TextStyle(
+                                  '${rating} out of 5',
+                                  style: const TextStyle(
                                       fontSize: 12,
                                       fontWeight: FontWeight.w600,
                                       color: Color(0xff091F44)),
@@ -101,7 +100,7 @@ Widget profileCard(VoidCallback schedule, VoidCallback cancel) {
                 const SizedBox(
                   width: 113,
                 ),
-                Image.asset('asset/image/icon.png'),
+                Image.asset(imageUrl),
               ],
             ),
             Container(

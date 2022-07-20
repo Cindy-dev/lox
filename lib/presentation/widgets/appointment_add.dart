@@ -95,29 +95,29 @@ class _AddAppointmentState extends State<AddAppointment> {
             ),
           ),
           Container(
-            margin: const EdgeInsets.only(top: 8, bottom: 50),
-            child: Calendar()
-            // DatePicker(
-            //   DateTime.now(),
-            //   width: 60,
-            //   height: 80,
-            //   controller: _controller,
-            //   initialSelectedDate: DateTime.now(),
-            //   selectionColor: const Color(0xffEFF1FC),
-            //   selectedTextColor: const Color(0xff1648CE),
-            //   inactiveDates: [
-            //     DateTime.now().add(Duration(days: 3)),
-            //     DateTime.now().add(Duration(days: 4)),
-            //     DateTime.now().add(Duration(days: 7))
-            //   ],
-            //   onDateChange: (date) {
-            //     // New date selected
-            //     setState(() {
-            //       _selectedValue = date;
-            //     });
-            //   },
-            // ),
-          ),
+              margin: const EdgeInsets.only(top: 8, bottom: 50),
+              child: const Calendar()
+              // DatePicker(
+              //   DateTime.now(),
+              //   width: 60,
+              //   height: 80,
+              //   controller: _controller,
+              //   initialSelectedDate: DateTime.now(),
+              //   selectionColor: const Color(0xffEFF1FC),
+              //   selectedTextColor: const Color(0xff1648CE),
+              //   inactiveDates: [
+              //     DateTime.now().add(Duration(days: 3)),
+              //     DateTime.now().add(Duration(days: 4)),
+              //     DateTime.now().add(Duration(days: 7))
+              //   ],
+              //   onDateChange: (date) {
+              //     // New date selected
+              //     setState(() {
+              //       _selectedValue = date;
+              //     });
+              //   },
+              // ),
+              ),
           Padding(
             padding: const EdgeInsets.fromLTRB(0, 0, 60, 50),
             child: Row(
@@ -153,22 +153,22 @@ class _AddAppointmentState extends State<AddAppointment> {
             ),
           ),
 
-         // Spacer(),
-         //  Container(
-         //    width: 326,
-         //    height: 50,
-         //    margin: const EdgeInsets.only(left: 18, right: 15, bottom: 30),
-         //    alignment: Alignment.center,
-         //    decoration:
-         //        BoxDecoration(border: Border.all(style: BorderStyle.solid)),
-         //    child: const Text(
-         //      'Add Appointment',
-         //      style: TextStyle(
-         //          fontSize: 15,
-         //          fontWeight: FontWeight.w500,
-         //          color: Color(0xff3E3E50)),
-         //    ),
-         //  ),
+          // Spacer(),
+          //  Container(
+          //    width: 326,
+          //    height: 50,
+          //    margin: const EdgeInsets.only(left: 18, right: 15, bottom: 30),
+          //    alignment: Alignment.center,
+          //    decoration:
+          //        BoxDecoration(border: Border.all(style: BorderStyle.solid)),
+          //    child: const Text(
+          //      'Add Appointment',
+          //      style: TextStyle(
+          //          fontSize: 15,
+          //          fontWeight: FontWeight.w500,
+          //          color: Color(0xff3E3E50)),
+          //    ),
+          //  ),
         ],
       ),
     );

@@ -132,7 +132,10 @@ class Profile extends StatelessWidget {
               ),
             ),
             GestureDetector(
-              onTap: () => navigatePush(context, const ScheduleDate()),
+              onTap: () => navigatePush(
+                  context,
+                  ScheduleDate(profileModel.name, profileModel.occupation,
+                      profileModel.rating, profileModel.imageUrl)),
               child: Container(
                 width: 343,
                 height: 48,
