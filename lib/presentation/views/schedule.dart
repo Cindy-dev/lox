@@ -1,10 +1,12 @@
 import 'package:date_picker_timeline/date_picker_widget.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:lox/logic/view_model/calendar_vm.dart';
 import 'package:lox/presentation/helpers/navigator.dart';
 import 'package:lox/presentation/helpers/schedule_helper.dart';
 import 'package:lox/presentation/widgets/appointment_add.dart';
 import 'package:lox/presentation/views/payment.dart';
+import 'package:lox/presentation/widgets/calendar.dart';
 
 class ScheduleDate extends StatefulWidget {
   String name;
@@ -116,12 +118,13 @@ class _ScheduleDateState extends State<ScheduleDate> {
             ),
             Container(
               alignment: Alignment.topLeft,
-              margin: const EdgeInsets.only(left: 8, bottom: 191),
+              margin: const EdgeInsets.only(left: 8, bottom: 11),
               child: const Text(
                 'Schedule Today',
                 style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
               ),
             ),
+            Calendar(widget.name),
             scheduleReminder(),
             profileCard(
               () => navigatePush(context, Payment()),
