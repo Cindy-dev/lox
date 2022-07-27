@@ -1,7 +1,24 @@
-import 'package:flutter/material.dart';
+import 'dart:async';
 
-class OnboardingScreen extends StatelessWidget {
+import 'package:flutter/material.dart';
+import 'package:lox/presentation/helpers/navigator.dart';
+import 'package:lox/presentation/views/home_screen.dart';
+
+class OnboardingScreen extends StatefulWidget {
   const OnboardingScreen({Key? key}) : super(key: key);
+
+  @override
+  State<OnboardingScreen> createState() => _OnboardingScreenState();
+}
+
+class _OnboardingScreenState extends State<OnboardingScreen> {
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    Timer(const Duration(seconds: 5),
+        () => navigatePush(context, const HomeScreen()));
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -10,18 +27,24 @@ class OnboardingScreen extends StatelessWidget {
         child: Column(
           children: [
             GestureDetector(
-              onTap: (){},
+              onTap: () {},
               child: Container(
                 alignment: Alignment.centerRight,
                 padding: const EdgeInsets.fromLTRB(0, 36, 0, 48),
                 child: const Text(
                   'Skip',
-                  style: TextStyle(fontSize: 16, fontWeight: FontWeight.w400, color: Color(0xffA9A7A7)),
+                  style: TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.w400,
+                      color: Color(0xffA9A7A7)),
                 ),
               ),
             ),
             const Spacer(),
-            Image.asset('asset/image/Charco Hi.png', fit: BoxFit.cover,),
+            Image.asset(
+              'asset/image/Charco Hi.png',
+              fit: BoxFit.cover,
+            ),
             const Text(
               'Hi there!',
               style: TextStyle(fontSize: 40, fontWeight: FontWeight.w700),
@@ -30,7 +53,9 @@ class OnboardingScreen extends StatelessWidget {
               'This is Lox Service app development test!',
               style: TextStyle(fontSize: 16, fontWeight: FontWeight.w400),
             ),
-            const Spacer(flex: 2,)
+            const Spacer(
+              flex: 2,
+            )
           ],
         ),
       ),

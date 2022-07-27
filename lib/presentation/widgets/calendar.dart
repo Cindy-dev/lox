@@ -29,7 +29,7 @@ class _CalendarState extends ConsumerState<Calendar> {
         cellBorderColor: Colors.transparent,
         showCurrentTimeIndicator: true,
         cellEndPadding: 7,
-        view: CalendarView.week,
+        view: CalendarView.day,
         allowDragAndDrop: true,
         onDragStart: readViewModel.dragStart,
         onDragUpdate: readViewModel.dragUpdate,
